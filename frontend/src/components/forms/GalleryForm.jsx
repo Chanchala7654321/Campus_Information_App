@@ -8,22 +8,22 @@ export default function GalleryForm({ initialData, onSuccess }) {
     title: "",
     image_url: "",
     category: "General",
-    campus_id: ""
+    campus_id: "",
   });
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/campuses")
-      .then(res => res.json())
-      .then(data => setCampuses(data))
-      .catch(err => console.error("Error fetching campuses:", err));
+    fetch("https://campus-information-backend.onrender.com/api/campuses")
+      .then((res) => res.json())
+      .then((data) => setCampuses(data))
+      .catch((err) => console.error("Error fetching campuses:", err));
 
     if (initialData) {
       setFormData({
         title: initialData.title || "",
         image_url: initialData.image_url || "",
         category: initialData.category || "General",
-        campus_id: initialData.campus_id || ""
+        campus_id: initialData.campus_id || "",
       });
     }
   }, [initialData]);
@@ -31,9 +31,9 @@ export default function GalleryForm({ initialData, onSuccess }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
-    const url = initialData 
-      ? `http://localhost:5000/api/gallery/${initialData._id}`
-      : "http://localhost:5000/api/gallery";
+    const url = initialData
+      ? `https://campus-information-backend.onrender.com/api/gallery/${initialData._id}`
+      : "https://campus-information-backend.onrender.com/api/gallery";
     const method = initialData ? "PUT" : "POST";
 
     try {
@@ -41,17 +41,24 @@ export default function GalleryForm({ initialData, onSuccess }) {
         method,
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(formData),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Operation failed");
-      
-      setMessage(`Gallery item ${initialData ? "updated" : "added"} successfully!`);
+
+      setMessage(
+        `Gallery item ${initialData ? "updated" : "added"} successfully!`
+      );
       if (onSuccess) onSuccess();
       if (!initialData) {
-        setFormData({ title: "", image_url: "", category: "General", campus_id: "" });
+        setFormData({
+          title: "",
+          image_url: "",
+          category: "General",
+          campus_id: "",
+        });
       }
     } catch (err) {
       setMessage(err.message);
@@ -61,19 +68,44 @@ export default function GalleryForm({ initialData, onSuccess }) {
   return (
     <div className="form-card">
       <h2>{initialData ? "Update Gallery Item" : "Add Gallery Item"}</h2>
-      {message && <div className={`message ${message.includes("success") ? "success" : "error"}`}>{message}</div>}
+      {message && (
+        <div
+          className={`message ${
+            message.includes("success") ? "success" : "error"
+          }`}
+        >
+          {message}
+        </div>
+      )}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Title *</label>
-          <input value={formData.title} onChange={(e) => setFormData({...formData, title: e.target.value})} required />
+          <input
+            value={formData.title}
+            onChange={(e) =>
+              setFormData({ ...formData, title: e.target.value })
+            }
+            required
+          />
         </div>
         <div className="form-group">
           <label>Image URL *</label>
-          <input value={formData.image_url} onChange={(e) => setFormData({...formData, image_url: e.target.value})} required />
+          <input
+            value={formData.image_url}
+            onChange={(e) =>
+              setFormData({ ...formData, image_url: e.target.value })
+            }
+            required
+          />
         </div>
         <div className="form-group">
           <label>Category</label>
-          <select value={formData.category} onChange={(e) => setFormData({...formData, category: e.target.value})}>
+          <select
+            value={formData.category}
+            onChange={(e) =>
+              setFormData({ ...formData, category: e.target.value })
+            }
+          >
             <option value="General">General</option>
             <option value="Campus">Campus</option>
             <option value="Event">Event</option>
@@ -82,9 +114,18 @@ export default function GalleryForm({ initialData, onSuccess }) {
         </div>
         <div className="form-group">
           <label>Related Campus</label>
-          <select value={formData.campus_id} onChange={(e) => setFormData({...formData, campus_id: e.target.value})}>
+          <select
+            value={formData.campus_id}
+            onChange={(e) =>
+              setFormData({ ...formData, campus_id: e.target.value })
+            }
+          >
             <option value="">None</option>
-            {campuses.map(c => <option key={c._id} value={c._id}>{c.name}</option>)}
+            {campuses.map((c) => (
+              <option key={c._id} value={c._id}>
+                {c.name}
+              </option>
+            ))}
           </select>
         </div>
         <button type="submit" className="btn-primary">

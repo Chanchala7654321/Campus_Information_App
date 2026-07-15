@@ -7,7 +7,7 @@ import StudentCard from "../components/StudentCard";
 import StudentModal from "../components/StudentModal";
 import "../styles/SchoolsPage.css";
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = "https://campus-information-backend.onrender.com";
 
 export default function Schools() {
   const [campuses, setCampuses] = useState([]);

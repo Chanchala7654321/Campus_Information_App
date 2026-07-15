@@ -14,7 +14,7 @@ export default function SchoolForm({ initialData, onSuccess }) {
 
   useEffect(() => {
     // Fetch campuses for dropdown
-    fetch("http://localhost:5000/api/campuses")
+    fetch("https://campus-information-backend.onrender.com/api/campuses")
       .then(res => res.json())
       .then(data => setCampuses(data))
       .catch(err => console.error("Error fetching campuses:", err));
@@ -33,8 +33,8 @@ export default function SchoolForm({ initialData, onSuccess }) {
     e.preventDefault();
     setMessage("");
     const url = initialData 
-      ? `http://localhost:5000/api/schools/${initialData._id}`
-      : "http://localhost:5000/api/schools";
+      ? `https://campus-information-backend.onrender.com/api/schools/${initialData._id}`
+      : "https://campus-information-backend.onrender.com/api/schools";
     const method = initialData ? "PUT" : "POST";
 
     try {

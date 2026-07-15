@@ -27,7 +27,7 @@ export default function StudentForm({ initialData, onSuccess }) {
 
   // Fetch all campuses
   useEffect(() => {
-    fetch("http://localhost:5000/api/campuses")
+    fetch("https://campus-information-backend.onrender.com/api/campuses")
       .then(res => res.json())
       .then(data => setCampuses(Array.isArray(data) ? data : []))
       .catch(err => console.error("Error fetching campuses:", err));
@@ -36,7 +36,7 @@ export default function StudentForm({ initialData, onSuccess }) {
   // Fetch schools when campus changes
   useEffect(() => {
     if (selectedCampusId) {
-      fetch(`http://localhost:5000/api/schools/campus/${selectedCampusId}`)
+      fetch(`https://campus-information-backend.onrender.com/api/schools/campus/${selectedCampusId}`)
         .then(res => res.json())
         .then(data => {
           setSchools(Array.isArray(data) ? data : []);
@@ -71,7 +71,7 @@ export default function StudentForm({ initialData, onSuccess }) {
 
       // Find campus of the current school
       if (initialData.school_id) {
-        fetch(`http://localhost:5000/api/schools/${initialData.school_id}`)
+        fetch(`https://campus-information-backend.onrender.com/api/schools/${initialData.school_id}`)
           .then(res => res.json())
           .then(school => {
             if (school && school.campus_id) setSelectedCampusId(school.campus_id);
@@ -84,8 +84,8 @@ export default function StudentForm({ initialData, onSuccess }) {
     e.preventDefault();
     setMessage("");
     const url = initialData 
-      ? `http://localhost:5000/api/students/${initialData._id}`
-      : "http://localhost:5000/api/students";
+      ? `https://campus-information-backend.onrender.com/api/students/${initialData._id}`
+      : "https://campus-information-backend.onrender.com/api/students";
     const method = initialData ? "PUT" : "POST";
 
     try {

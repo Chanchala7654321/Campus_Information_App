@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { FaImages, FaUniversity, FaExpand, FaTimes } from "react-icons/fa";
 import "../styles/Gallery.css";
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = "https://campus-information-backend.onrender.com";
 
 export default function Gallery() {
   const [campuses, setCampuses] = useState([]);

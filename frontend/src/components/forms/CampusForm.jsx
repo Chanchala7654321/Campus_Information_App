@@ -28,8 +28,8 @@ export default function CampusForm({ initialData, onSuccess }) {
     e.preventDefault();
     setMessage("");
     const url = initialData 
-      ? `http://localhost:5000/api/campuses/${initialData._id}`
-      : "http://localhost:5000/api/campuses";
+      ? `https://campus-information-backend.onrender.com/api/campuses/${initialData._id}`
+      : "https://campus-information-backend.onrender.com/api/campuses";
     const method = initialData ? "PUT" : "POST";
 
     try {

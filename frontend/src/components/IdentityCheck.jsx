@@ -17,8 +17,8 @@ export default function IdentityCheck({ entity, action, onVerified, onCancel }) 
     setError("");
 
     try {
-      let endpoint = `http://localhost:5000/api/${entity}`;
-      if (entity === "campus") endpoint = "http://localhost:5000/api/campuses";
+      let endpoint = `https://campus-information-backend.onrender.com/api/${entity}`;
+      if (entity === "campus") endpoint = "https://campus-information-backend.onrender.com/api/campuses";
       if (entity === "school" || entity === "student") endpoint += "s";
       const res = await fetch(endpoint);
       const data = await res.json();

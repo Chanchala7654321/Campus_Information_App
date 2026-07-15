@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { FaMapMarkerAlt, FaUsers, FaSchool, FaSearch, FaChevronRight, FaLocationArrow } from "react-icons/fa";
 import "../styles/MapView.css";
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = "https://campus-information-backend.onrender.com";
 
 export default function MapView() {
   const [campuses, setCampuses] = useState([]);

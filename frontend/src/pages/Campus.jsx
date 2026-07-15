@@ -6,7 +6,7 @@ import CampusCard from "../components/CampusCard";
 import "../styles/CampusPage.css"
 
 export default function Campus() {
-  const API_BASE = "http://localhost:5000";
+  const API_BASE = "https://campus-information-backend.onrender.com";
   const navigate = useNavigate();
 
   const [campuses, setCampuses] = useState([]);
