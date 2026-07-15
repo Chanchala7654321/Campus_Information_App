@@ -22,6 +22,15 @@ app.use('/api/schools', require('./routes/schools'));
 app.use('/api/students', require('./routes/students'));
 app.use('/api/gallery', require('./routes/gallery'));
 
+
+app.get("/", (req, res) => {
+  res.send("Campus Information Backend is running...");
+});
+
+app.get("/healthz", (req, res) => {
+  res.status(200).json({ status: "OK" });
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
