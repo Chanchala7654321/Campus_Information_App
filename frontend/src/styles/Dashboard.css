@@ -1,0 +1,252 @@
+/* ── Dashboard Page ────────────────────────────────── */
+.dashboard-page {
+  min-height: 100vh;
+  background: #f1f5f9;
+}
+
+/* ── Empty / unauthenticated state ─────────────────── */
+.dashboard-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 1rem;
+  text-align: center;
+  color: #64748b;
+}
+
+.dashboard-empty svg {
+  font-size: 4rem;
+  color: #cbd5e1;
+}
+
+.dashboard-empty h2 {
+  font-size: 1.5rem;
+  color: #0f172a;
+  margin: 0;
+}
+
+.dashboard-empty p {
+  margin: 0;
+}
+
+.dash-login-btn {
+  display: inline-block;
+  background: #1aa38a;
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  transition: opacity 0.2s;
+}
+
+.dash-login-btn:hover {
+  opacity: 0.9;
+}
+
+/* ── Header ────────────────────────────────────────── */
+.dashboard-header {
+  background: linear-gradient(135deg, #0f766e 0%, #1aa38a 100%);
+  padding: 2.5rem 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.dashboard-header-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.dash-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: white;
+  flex-shrink: 0;
+}
+
+.dashboard-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 0.35rem;
+}
+
+.dashboard-header h1 span {
+  font-weight: 800;
+}
+
+.dash-role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dash-logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  color: white;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background 0.2s;
+  font-family: inherit;
+}
+
+.dash-logout-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ── Container ─────────────────────────────────────── */
+.dashboard-container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2.5rem 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.dash-section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+/* ── Profile Card ──────────────────────────────────── */
+.dash-profile-card {
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+.dash-profile-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background 0.15s;
+}
+
+.dash-profile-row:last-child {
+  border-bottom: none;
+}
+
+.dash-profile-row:hover {
+  background: #f8fafc;
+}
+
+.dash-profile-icon {
+  font-size: 1.2rem;
+  color: #1aa38a;
+  flex-shrink: 0;
+  width: 20px;
+}
+
+.dash-profile-label {
+  display: block;
+  font-size: 0.78rem;
+  color: #94a3b8;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+
+.dash-profile-value {
+  display: block;
+  font-size: 0.97rem;
+  color: #0f172a;
+  font-weight: 500;
+}
+
+.dash-role-text {
+  color: #1aa38a;
+  font-weight: 700;
+}
+
+/* ── Quick Access Grid ─────────────────────────────── */
+.dash-quick-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 1rem;
+}
+
+.dash-quick-card {
+  background: white;
+  border-radius: 14px;
+  padding: 1.5rem 1rem;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+  color: #334155;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1.5px solid #e2e8f0;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.dash-quick-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+  border-color: #1aa38a;
+}
+
+.dqc-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: white;
+}
+
+.dqc-icon.campus  { background: linear-gradient(135deg, #0f766e, #1aa38a); }
+.dqc-icon.school  { background: linear-gradient(135deg, #2563eb, #60a5fa); }
+.dqc-icon.student { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
+.dqc-icon.admin-ic { background: linear-gradient(135deg, #b45309, #f59e0b); }
+
+.dash-quick-card.admin {
+  border-color: #fde68a;
+  background: #fffbeb;
+  color: #92400e;
+}

@@ -1,0 +1,79 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar h2 {
+  color: var(--color-ink);
+  font-weight: 700;
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-logo-icon {
+  font-size: 1.5rem;
+  color: #ff4757; /* A redish accent color shown in screenshot logo */
+}
+
+.navbar-transparent {
+  background: transparent;
+  box-shadow: none;
+  position: absolute;
+  width: 100%;
+}
+
+.navbar-transparent h2, 
+.navbar-transparent a {
+  color: white;
+}
+
+.navbar-transparent .navbar-logo-icon {
+  color: white; /* Optional: Keep it white on transparent background, or let it be red, let's keep red like screenshot */
+}
+
+.navbar ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--color-muted);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.navbar a.active {
+  background: var(--color-primary);
+  color: white;
+}
+
+.navbar a:hover:not(.active) {
+  color: var(--color-primary);
+  background: #f1f5f9;
+}
+
+
+.navbar-transparent a:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}

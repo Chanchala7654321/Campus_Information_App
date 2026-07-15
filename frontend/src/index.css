@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --font-body: "Inter", "Segoe UI", sans-serif;
+  --color-ink: #1f2937;
+  --color-muted: #6b7280;
+  --color-surface: #ffffff;
+  --color-primary: #1aa38a;
+  --color-primary-dark: #14836f;
+  --color-bg: #f8fafc;
+  --color-border: #e5e7eb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background: var(--color-surface); /* or a very light gray if needed */
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1;
+}
+
+/* Base styles for the hero header block shown in the screenshots */
+.page-hero {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.page-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+
+.page-hero p {
+  font-size: 1.1rem;
+  margin: 0;
+  opacity: 0.9;
+}
